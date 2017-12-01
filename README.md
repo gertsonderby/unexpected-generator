@@ -1,6 +1,7 @@
 # unexpected-generator
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/gertsonderby/unexpected-generator.svg)](https://greenkeeper.io/)
+
 Plugin for unexpected providing support for generators and iterators. It adds a type for iterators. Generators are tested by testing the iterator resulting from calling them.
 
 ## Assertions
