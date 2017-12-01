@@ -1,0 +1,39 @@
+{
+  "name": "unexpected-generator",
+  "version": "0.1.0",
+  "description":
+    "A plugin for unexpected providing support for generators and iterators",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gertsonderby/unexpected-generator.git"
+  },
+  "keywords": ["assertion", "test", "assert", "generator", "iterator"],
+  "author": "Gert Sønderby",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gertsonderby/unexpected-generator/issues"
+  },
+  "homepage": "https://github.com/gertsonderby/unexpected-generator#readme",
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "husky": "^0.14.3",
+    "jest": "^21.2.1",
+    "lint-staged": "^6.0.0",
+    "prettier": "^1.8.2",
+    "unexpected": "^10.36.2"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "lint-staged": {
+    "*.{js,json,css}": ["prettier --write", "git add"]
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./setupFramework"
+  }
+}
