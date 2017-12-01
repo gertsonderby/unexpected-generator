@@ -20,7 +20,6 @@ Sends the given value to the iterator as a parameter of the `next()` call, and e
 ### `<iterator> yielding with <any> <assertion?>`
 Sends the given value to the iterator as a parameter of the `next()` call, and shifts the resulting value to the following assertion, if any. If the iterator is done, this assertion fails.
 
-## Note
-This library requires ES2015. It is not transpiled, but if your codebase supports generators and iterators, then you likely already have what you need to run this.
+---
 
 MIT Licensed, © 2017 Gert Sønderby

@@ -1,0 +1,10 @@
+.circleci
+coverage
+node_modules
+.git
+.babelrc
+.gitignore
+package-lock.json
+setupFramework.js
+unexpectedGenerator.js
+unexpectedGenerator.test.js
