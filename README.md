@@ -1,6 +1,6 @@
 # unexpected-generator
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/gertsonderby/unexpected-generator.svg)](https://greenkeeper.io/)
+[![Depfu](https://badges.depfu.com/badges/133b69aab4dac3cf2951bf2b6f76fb30/count.svg)](https://depfu.com/github/gertsonderby/unexpected-generator?project_id=8116)
 
 ![http://www.shalominthewilderness.com/2013/07/horse-progress-days.html](https://i.imgur.com/7gSeZyn.jpg)
 
