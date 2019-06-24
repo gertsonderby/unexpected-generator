@@ -33,7 +33,7 @@
     "jest": "^24.8.0",
     "lint-staged": "^8.2.1",
     "prettier": "^1.18.2",
-    "unexpected": "^11.6.0"
+    "unexpected": "^11.6.1"
   },
   "prettier": {
     "singleQuote": true,
