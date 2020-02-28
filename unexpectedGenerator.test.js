@@ -34,20 +34,22 @@ describe('unexpected-generators plugin', () => {
   });
 
   describe('iterators', () => {
+    let testExpect;
     let testIterator;
     beforeEach(() => {
+      testExpect = expect.clone().use(unexpectedGenerator);
       testIterator = makeIterator(['this', 'is', 'a', 'test']);
     });
 
     it('<iterator> to yield item <any>', () =>
       expect(
-        () => expect(testIterator, 'to yield item', 'this'),
+        () => testExpect(testIterator, 'to yield item', 'this'),
         'not to error',
       ));
 
     it('<iterator> to yield item <any>, diff', () =>
       expect(
-        () => expect(testIterator, 'to yield item', 'is'),
+        () => testExpect(testIterator, 'to yield item', 'is'),
         'to error',
         "expected iterator to yield item 'is'\n\n-this\n+is",
       ));
@@ -58,7 +60,7 @@ describe('unexpected-generators plugin', () => {
       testIterator.next();
       testIterator.next();
       return expect(
-        () => expect(testIterator, 'to yield item', 'anything'),
+        () => testExpect(testIterator, 'to yield item', 'anything'),
         'to error',
         "Iterator was expected to yield 'anything' but was done",
       );
@@ -67,14 +69,19 @@ describe('unexpected-generators plugin', () => {
     it('<iterator> to yield items <array>', () =>
       expect(
         () =>
-          expect(testIterator, 'to yield items', ['this', 'is', 'a', 'test']),
+          testExpect(testIterator, 'to yield items', [
+            'this',
+            'is',
+            'a',
+            'test',
+          ]),
         'not to error',
       ));
 
     it('<iterator> to yield items <array>, subject too short', () =>
       expect(
         () =>
-          expect(testIterator, 'to yield items', [
+          testExpect(testIterator, 'to yield items', [
             'far ',
             'too',
             'long',
@@ -90,7 +97,7 @@ describe('unexpected-generators plugin', () => {
     it('<iterator> to yield items <array>, diff', () =>
       expect(
         () =>
-          expect(testIterator, 'to yield items', [
+          testExpect(testIterator, 'to yield items', [
             'not',
             'really',
             'a',
@@ -115,39 +122,42 @@ describe('unexpected-generators plugin', () => {
 
     it('<iterator> yielding with <any>', () =>
       expect(
-        () => expect(argGenerator(4), 'yielding with', 2),
+        () => testExpect(argGenerator(4), 'yielding with', 2),
         'not to error',
       ).then(value => expect(value, 'to be', 0)));
 
     it('<iterator> yielding with <any> <assertion>', () =>
       expect(
-        () => expect(argGenerator(4), 'yielding with', 2, 'to be', 0),
+        () => testExpect(argGenerator(4), 'yielding with', 2, 'to be', 0),
         'not to error',
       ));
 
     it('<iterator> yielding with <any>, iterator done', () =>
       expect(
-        () => expect(argGenerator(0), 'yielding with', 2),
+        () => testExpect(argGenerator(0), 'yielding with', 2),
         'to error',
         'Iterator was expected to yield but was done',
       ));
 
     it('<iterator> to be done, pass', () =>
-      expect(() => expect(argGenerator(0), 'to be done'), 'not to error'));
+      expect(() => testExpect(argGenerator(0), 'to be done'), 'not to error'));
 
     it('<iterator> to be done, fail', () =>
       expect(
-        () => expect(argGenerator(5), 'to be done'),
+        () => testExpect(argGenerator(5), 'to be done'),
         'to error',
         'expected iterator to be done',
       ));
 
     it('<iterator> not to be done, pass', () =>
-      expect(() => expect(argGenerator(5), 'not to be done'), 'not to error'));
+      expect(
+        () => testExpect(argGenerator(5), 'not to be done'),
+        'not to error',
+      ));
 
     it('<iterator> not to be done, fail', () =>
       expect(
-        () => expect(argGenerator(0), 'not to be done'),
+        () => testExpect(argGenerator(0), 'not to be done'),
         'to error',
         'expected iterator not to be done',
       ));
@@ -155,17 +165,17 @@ describe('unexpected-generators plugin', () => {
     it('<iterator> to be done with <any>, pass', () =>
       expect(
         () =>
-          expect(
+          testExpect(
             accepterGenerator(),
             'to yield item',
-            expect.it('to be a', 'Promise'),
+            testExpect.it('to be a', 'Promise'),
           ).and('to be done with', 2),
         'not to error',
       ));
 
     it('<iterator> to be done with <any>, fail', () =>
       expect(
-        () => expect(accepterGenerator(), 'to be done with', 2),
+        () => testExpect(accepterGenerator(), 'to be done with', 2),
         'to error',
         'expected iterator to be done with 2',
       ));
