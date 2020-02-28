@@ -6,6 +6,7 @@ node_js:
 - 12
 script: npm run coverage
 deploy:
+  edge: true
   provider: npm
   email: gert.sonderby@gmail.com
   api_token:
