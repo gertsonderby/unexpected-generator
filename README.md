@@ -1,6 +1,7 @@
 # unexpected-generator
 
 [![Depfu](https://badges.depfu.com/badges/133b69aab4dac3cf2951bf2b6f76fb30/count.svg)](https://depfu.com/github/gertsonderby/unexpected-generator?project_id=8116)
+[![Build Status](https://travis-ci.com/gertsonderby/unexpected-generator.svg?branch=master)](https://travis-ci.com/gertsonderby/unexpected-generator)
 
 ![http://www.shalominthewilderness.com/2013/07/horse-progress-days.html](https://i.imgur.com/7gSeZyn.jpg)
 
