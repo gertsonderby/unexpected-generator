@@ -1,9 +1,9 @@
 export default {
   name: 'unexpected-generators',
-  installInto: expect => {
+  installInto: (expect) => {
     expect.addType({
       name: 'iterator',
-      identify: subject =>
+      identify: (subject) =>
         subject && subject.next && typeof subject.next === 'function',
       inspect: () => 'iterator',
     });

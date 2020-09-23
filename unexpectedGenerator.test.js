@@ -4,7 +4,7 @@ function makeIterator(array) {
   var nextIndex = 0;
 
   return {
-    next: function() {
+    next: function () {
       return nextIndex < array.length
         ? { value: array[nextIndex++], done: false }
         : { done: true };
@@ -124,7 +124,7 @@ describe('unexpected-generators plugin', () => {
       expect(
         () => testExpect(argGenerator(4), 'yielding with', 2),
         'not to error',
-      ).then(value => expect(value, 'to be', 0)));
+      ).then((value) => expect(value, 'to be', 0)));
 
     it('<iterator> yielding with <any> <assertion>', () =>
       expect(
