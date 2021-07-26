@@ -31,7 +31,7 @@
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.13.8",
     "husky": "^6.0.0",
-    "jest": "^27.0.4",
+    "jest": "^27.0.6",
     "lint-staged": "^11.0.0",
     "prettier": "^2.3.2",
     "unexpected": "^12.0.3"
