@@ -28,7 +28,7 @@
   "homepage": "https://github.com/gertsonderby/unexpected-generator#readme",
   "devDependencies": {
     "@babel/cli": "^7.14.8",
-    "@babel/core": "^7.15.0",
+    "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.0",
     "husky": "^7.0.2",
     "jest": "^27.1.0",
