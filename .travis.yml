@@ -1,7 +1,6 @@
 os: linux
 language: node_js
 node_js:
-- node
 - lts/*
 script: npm run coverage
 deploy:
